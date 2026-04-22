@@ -1,6 +1,6 @@
 import requests
 
-BASE_URL = "http://localhost:3000"
+BASE_URL = "http://localhost:5000"
 
 def test_health():
     res = requests.get(f"{BASE_URL}/health")
