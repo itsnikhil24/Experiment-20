@@ -23,20 +23,25 @@
 ## Folder Structure
 
 ```
-Experiment-20/
+EXPERIMENT-20/
 │
 ├── .github/
 │   └── workflows/
 │       └── ci-cd.yml        # GitHub Actions workflow
 │
+├── Screenshots/            
+│
 ├── venv/                    # Virtual environment (not pushed to Git)
-├── app.py                   # Main Flask backend
-├── Dockerfile               # Docker configuration
-├── requirements.txt         # Python dependencies
-├── test_app.py              # API test cases
-├── .dockerignore            # Docker ignore rules
-├── .gitignore               # Git ignore rules
-└── README.md                # Documentation
+│
+├── app.py                  
+├── Dockerfile               
+├── requirements.txt        
+├── test_app.py              
+│
+├── .dockerignore           
+├── .gitignore              
+│
+└── README.md              
 ```
 
 ---
