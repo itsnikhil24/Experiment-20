@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Setup Python
       uses: actions/setup-python@v4
@@ -19,21 +20,24 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Start App
-      run: |
-        python app.py &
-        sleep 5
 
     - name: Run Tests
       run: pytest test_app.py
 
+
     - name: Build Docker Image
       run: docker build -t flask-backend .
 
+
     - name: Run Container
       run: |
-        docker run -d -p 5001:5000 flask-backend
+        docker run -d -p 5001:5000 --name test-container flask-backend
         sleep 5
+
 
     - name: Test Container
       run: curl http://localhost:5001/health
+
+
+    - name: Stop Container
+      run: docker stop test-container
